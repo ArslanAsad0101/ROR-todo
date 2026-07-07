@@ -1,0 +1,21 @@
+<h1>Users and Their Todos</h1>
+
+<% @users.each do |user| %>
+  <h2><%= user.name %></h2>
+  <p>Email: <%= user.email %></p>
+
+  <% if user.todos.any? %>
+    <ul>
+      <% user.todos.each do |todo| %>
+        <li>
+          <strong><%= todo.title %></strong><br>
+          <%= todo.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No todos yet.</p>
+  <% end %>
+<% end %>
+
+<%= link_to "Back to todos", todos_path %>

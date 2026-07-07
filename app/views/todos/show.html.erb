@@ -1,9 +1,11 @@
 <h1>Todo Details</h1>
 
 <h2>
-  <%= @todo[:title] %>
+  <%= @todo.title %>
 </h2>
 
 <p>
-  <%= @todo[:description] %>
+  <%= @todo.description %>
 </p>
+
+<%= link_to "Back", todos_path %>

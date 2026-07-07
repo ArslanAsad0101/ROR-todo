@@ -1,0 +1,17 @@
+<h1>Sign Up</h1>
+
+<%= form_with model: @user, url: signup_path do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <%= form.submit "Create Account" %>
+<% end %>
+
+<%= link_to "Log in", login_path %>

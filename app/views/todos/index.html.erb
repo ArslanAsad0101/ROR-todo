@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+    <p>
+        <%= flash[:notice] %>
+    </p>
+<% end %>
+
+
+
+<ul>
+
+<% @todos.each_with_index do |todo, index| %>
+
+  <li>
+    <a href="/todos/<%= index %>">
+
+      <%= todo[:title] %>
+      <br>
+      <%= todo[:description] %>
+
+    </a>
+
+  </li>
+
+<% end %>
+
+</ul>
+
+
+<a href="/todos/new">
+  Add Todo
+</a>

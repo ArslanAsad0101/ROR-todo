@@ -1,0 +1,15 @@
+<h1>Edit Todo</h1>
+
+<%= form_with url: "/todos/#{params[:id]}", method: :patch do |form| %>
+  <div>
+    <label>Title</label>
+    <%= form.text_field :title, value: @todo[:title] %>
+  </div>
+
+  <div>
+    <label>Description</label>
+    <%= form.text_area :description, value: @todo[:description] %>
+  </div>
+
+  <%= form.submit "Update Todo" %>
+<% end %>

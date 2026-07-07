@@ -2,6 +2,9 @@ require "test_helper"
 
 class TodosControllerTest < ActionDispatch::IntegrationTest
   test "creates a todo and stores it in the database" do
+    user = User.create!(name: "Test User", email: "test@example.com")
+    post login_path, params: { email: user.email }
+
     assert_difference("Todo.count", 1) do
       post todos_path, params: { title: "Buy milk", description: "From the grocery store" }
     end

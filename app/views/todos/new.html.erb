@@ -1,18 +1,17 @@
 <h1>Create New Todo</h1>
 
-<%= form_with url: "/todos", method: :post do |form| %>
+<%= form_with url: todos_path, method: :post do |form| %>
+  <div>
+    <%= form.label :title, "Todo title" %>
+    <%= form.text_field :title %>
+  </div>
 
-  <label>
-    Todo title:
-  </label>
-<br>
-  <%= form.text_field :title %>
-
-<p>
-<%= form.label :description %> <br>
-<%= form.text_area :description %>
-</p>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 5 %>
+  </div>
 
   <%= form.submit "Save Todo" %>
-
 <% end %>
+
+<%= link_to "Back to todos", todos_path, class: "btn" %>

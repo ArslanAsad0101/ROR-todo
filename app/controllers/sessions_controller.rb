@@ -1,15 +1,18 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
     user = User.find_by(email: params[:email])
 
-    if user
+    if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to todos_path, notice: "Logged in successfully"
     else
-      flash.now[:alert] = "Invalid email"
+      @user = User.new
+      @error_message = "Invalid email or password. Try again or create an account."
+      flash.now[:alert] = @error_message
       render :new, status: :unprocessable_entity
     end
   end

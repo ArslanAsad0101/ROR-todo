@@ -1,12 +1,29 @@
 <h1>Log In</h1>
+<p class="helper-text">Welcome back! Enter the email and password you used when you created your account.</p>
+
+<% if @error_message.present? %>
+  <div id="error-messages" class="error-messages">
+    <p><%= @error_message %></p>
+  </div>
+<% end %>
 
 <%= form_with url: login_path, method: :post do |form| %>
   <div>
     <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <%= form.submit "Log In" %>
 <% end %>
+
+<div class="helper-card">
+  <h2>Need help?</h2>
+  <p>If this is your first time here, create an account with your email and a password of at least 6 characters.</p>
+</div>
 
 <%= link_to "Sign up", signup_path, class: "btn" %>

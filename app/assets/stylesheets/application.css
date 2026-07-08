@@ -72,6 +72,29 @@ li {
   margin-bottom: 10px;
 }
 
+.helper-text {
+  color: #6b7280;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+.helper-card {
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  margin: 16px 0;
+}
+
+.error-messages {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  color: #b91c1c;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
 .notice, .alert {
   padding: 12px 14px;
   border-radius: 10px;

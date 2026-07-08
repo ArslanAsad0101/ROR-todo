@@ -12,8 +12,9 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to todos_path, notice: "Account created successfully"
+      redirect_to todos_path, notice: "Account created successfully. Welcome!"
     else
+      flash.now[:alert] = "Please fix the highlighted issues to continue."
       render :new, status: :unprocessable_entity
     end
   end
@@ -21,6 +22,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

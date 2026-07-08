@@ -25,6 +25,11 @@
   <body>
     <div class="container">
       <div class="card">
+        <% flash.each do |type, message| %>
+          <% css_class = type == "alert" ? "alert" : "notice" %>
+          <div class="<%= css_class %>"><%= message %></div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>
